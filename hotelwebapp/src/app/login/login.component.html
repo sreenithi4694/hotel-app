@@ -1,0 +1,69 @@
+<!--<p>login-component works!</p>-->
+<!--<div style="margin-left: 45%"><img src="assets/hotel-logo-vector-19182594.jpg" style="height: 100px;width: auto" /></div>-->
+<br>
+
+<div class="authentication-card-container" >
+  <mat-card class="authentication-card" style="text-align: center">
+    <br>
+    <h4>Login</h4>
+    <br>
+    <mat-card-content>
+      <form
+        [formGroup]="loginform"
+        fxLayout="column"
+        fxLayoutAlign="center stretch" (blur)="this.loginform.markAllAsTouched()">
+        <mat-form-field style="width: 70%;">
+          <mat-label>Username</mat-label>
+          <input matInput type="email" formControlName="username" name="username" />
+          <mat-error *ngIf="loginform.get('username')?.hasError('required')">Username required</mat-error>
+          <mat-error *ngIf="loginform.get('username')?.hasError('email')">Username invalid</mat-error>
+
+        </mat-form-field>
+        <mat-form-field style="width: 70%;">
+          <mat-label>Password</mat-label>
+          <input matInput  [type]="hide ? 'password':'text'" formControlName="password" name ="password"/>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginform.get('password')?.hasError('required')">Password required</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <br>
+    <button mat-raised-button style="width :30%;margin-left: 35%" color="primary" (click)="onSubmit()" [disabled]="!this.loginform.valid" >
+      Login
+    </button>
+    <br>
+<!--    <mat-card-actions align="end">-->
+<!--      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!this.loginform.valid" >-->
+<!--        Login-->
+<!--      </button>-->
+<!--    </mat-card-actions>-->
+    <div class="gapforgooglesign" style="text-align: center">OR</div>
+
+    <br/>
+
+
+    <div id="google-btn" style="margin-left: 27%">
+
+    </div>
+    <br/>
+    <br/>
+    Not a Customer ? <a routerLink="/register">Sign up Here</a>
+    <br/>
+  </mat-card>
+</div>
+<!--<div class="gapforgooglesign" style="text-align: center">OR</div>-->
+<!--<br/>-->
+
+
+
+<!--<div id="google-btn" style="margin-left: 43%">-->
+
+<!--</div>-->
+
+
+
+
+
+

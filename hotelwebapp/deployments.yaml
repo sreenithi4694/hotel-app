@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fewebapp
+  labels:
+    app: fewebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fewebapp
+  template:
+    metadata:
+      name: fewebapp
+      labels:
+        app: fewebapp
+    spec:
+      containers:
+        - name: fewebapp
+          image: fewebapp:latest
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+
