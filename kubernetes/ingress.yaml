@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /fewebapp
+            pathType : ImplementationSpecific
+            backend:
+              service:
+                name: fewebapp
+                port:
+                  number: 4200
