@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bewebapp
+  labels:
+    app: bewebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bewebapp
+  template:
+    metadata:
+      name: bewebapp
+      labels:
+        app: bewebapp
+    spec:
+      containers:
+        - name: bewebapp
+          image: bewebapp:latest
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      
